@@ -6,25 +6,20 @@ import { PrincipalModule } from './components/principal/principal.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { PrincipalComponent } from './components/principal/principal.component';
+import { SignInUpModule } from './components/sign-in-up/sign-in-up.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
     PrincipalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    PrincipalModule
-
+    PrincipalModule,
+    SignInUpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
