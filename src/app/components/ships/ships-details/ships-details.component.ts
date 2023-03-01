@@ -18,24 +18,26 @@ export class ShipsDetailsComponent implements OnInit {
   modelDetails: string = '';
   starship_class: string = '';
 
-  constructor() { 
+  constructor() {
   }
-  
+
   ngOnInit(): void {
-      this.config = {
-        itemsPerPage: 5,
-        currentPage: 1,
-        totalItems: this.dataList.length
-      };
+    this.config = {
+      itemsPerPage: 5,
+      currentPage: 1,
+      totalItems: this.dataList.length
+    };
   }
 
-  getStarshipId(url) {
-    this.shipId = url.slice(0, -1)
-    const urlImage = `${this.shipId}.jpg`
-    return urlImage !== "";
+  getStarshipId(url: string): string {
+    let urlSplit = url.split('/');
+    this.shipId = urlSplit[urlSplit.length - 2];
+    console.log()
+    const urlImage = `https://starwars-visualguide.com/assets/img/starships/${this.shipId}.jpg`
+    return urlImage;
   }
 
-  pageChanged(event){
+  pageChanged(event) {
     this.config.currentPage = event;
   }
 
