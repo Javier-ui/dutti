@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ShipModel } from '../_models/ship.model';
+import { PaginationConfigModel } from './_models/pagination-config.model';
+import { ShipDetailInterface } from './_interfaces/ship-detail.interface';
 declare var $: any;
 
 
@@ -9,8 +12,8 @@ declare var $: any;
 })
 export class ShipsDetailsComponent implements OnInit {
 
-  @Input() dataList: any;
-  config: any;
+  @Input() dataList: Array<ShipModel>;
+  config: PaginationConfigModel;
   shipId: string = '';
   url: string = '';
   // Modal
@@ -22,26 +25,21 @@ export class ShipsDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.config = {
-      itemsPerPage: 5,
-      currentPage: 1,
-      totalItems: this.dataList.length
-    };
+    this.config = new PaginationConfigModel(5, 1, this.dataList.length)
   }
 
   getStarshipId(url: string): string {
     let urlSplit = url.split('/');
     this.shipId = urlSplit[urlSplit.length - 2];
-    console.log()
     const urlImage = `https://starwars-visualguide.com/assets/img/starships/${this.shipId}.jpg`
     return urlImage;
   }
 
-  pageChanged(event) {
+  pageChanged(event: number) {
     this.config.currentPage = event;
   }
 
-  openDetails(details) {
+  openDetails(details: ShipDetailInterface) {
     $("#exampleModal").modal('show');
     this.titleDetails = details.name;
     this.modelDetails = details.model;
