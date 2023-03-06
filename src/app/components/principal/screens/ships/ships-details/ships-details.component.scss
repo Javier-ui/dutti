@@ -1,5 +1,12 @@
-.ship {
-    padding: 30px;
+.ship,
+.spinner {
+    margin: 30px;
+}
+
+.spinner {
+    position: absolute;
+    top: 40px;
+    width: 40px;
 }
 
 .imgSize {

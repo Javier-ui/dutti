@@ -11,7 +11,7 @@ import { ShipsService } from './_services/ships.service';
 export class ShipsComponent implements OnInit {
 
   public dataList: Array<ShipModel> = [];
-
+  public bLoading = true;
   constructor(private shipsService: ShipsService) { }
 
   ngOnInit(): void {
@@ -24,6 +24,8 @@ export class ShipsComponent implements OnInit {
       this.dataList = this.dataList.concat(result.results);
       if (result.next !== null) {
         this.getShips(++pageNumber);
+      } else {
+        this.bLoading = false;
       }
       console.log('SHIPS -->', this.dataList);
     });

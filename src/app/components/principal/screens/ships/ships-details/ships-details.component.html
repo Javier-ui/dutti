@@ -1,4 +1,6 @@
 <pagination-controls (pageChange)="pageChanged($event)" class="text-center"></pagination-controls>
+<img *ngIf="bLoading" src="../../../../../../assets/img/loading-loading-gif.gif" class="spinner">
+
 <div class="ship" *ngFor="let ships of dataList | paginate: config; ; let i = index" (click)="openDetails(ships)">
   <div class="panel-heading">
     <h3 class="panel-title">{{ships.name}}</h3>

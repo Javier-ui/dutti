@@ -20,6 +20,7 @@ export class ShipsDetailsComponent implements OnInit {
   titleDetails: string = '';
   modelDetails: string = '';
   starship_class: string = '';
+  @Input() bLoading: boolean;
 
   constructor() {
   }
