@@ -35,4 +35,6 @@ Navigate to `http://localhost:4200/`.
 
 # Notas del desarrollador:
 
+Para evitar la saturación del servido desplegaria la aplicación aplicaria la siguiente solución:
 
+- Desplegando en Azure un scale set que nos permita ir creando maquinas con contenedores docker de manera automática cuando los nodos existen se encuentren con un gran estres

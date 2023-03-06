@@ -4,10 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { PrincipalComponentsRoutingModule } from './principal-routing.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 // Components
-import { ShipsComponent } from '../ships/ships.component';
-import { PageOneComponent } from '../page-one/page-one.component';
-import { PageTwoComponent } from '../page-two/page-two.component';
-import { ShipsDetailsComponent } from '../ships/ships-details/ships-details.component';
+import { ShipsComponent } from './screens/ships/ships.component';
+import { PageOneComponent } from './screens/page-one/page-one.component';
+import { PageTwoComponent } from './screens/page-two/page-two.component';
+import { ShipsDetailsComponent } from './screens/ships/ships-details/ships-details.component';
 
 @NgModule({
   declarations: [
