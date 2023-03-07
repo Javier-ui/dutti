@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
 
 // JSON
 import usersList from 'src/assets/json/users.json';
+import { LoginService } from './_service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -20,26 +22,25 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private readonly loginService: LoginService
   ) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: [ '', [Validators.required, Validators.minLength(3)]],
-      password: [ '', [Validators.required, Validators.minLength(6)]]
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     })
   }
   loginUser() {
     if (this.loginForm.invalid) { return }
-    // TODO : Falta integrar el servicio para autentificar al usuario
-    // JSON simulando usuarios
-    var userLogin = this.loginForm.value.username;
-    var filterJson = this.users.filter(function (user) { return user.first_name === userLogin  });
-    if (filterJson.length > 0) {
-      this.router.navigate(['/principal/ships'])
-    } else {
-      this.unregistered = true;
-    }
+    this.loginService.logIn(this.loginForm.value.username, this.loginForm.value.password).subscribe((response) => {
+      if (response) {
+        this.unregistered = false;
+        this.router.navigateByUrl(`/principal/ships`);
+      } else {
+        this.unregistered = true;
+      }
+    });
   }
 }
-

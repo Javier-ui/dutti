@@ -1,20 +1,23 @@
 [
     {
-        "first_name":"Paco",
-        "last_name":"Ruiz",
-        "username":"PacoRuiz",
-        "email":"paco@paco.es"
+        "first_name": "Paco",
+        "last_name": "Ruiz",
+        "username": "PacoRuiz",
+        "email": "paco@paco.es",
+        "password": "123456"
     },
     {
-        "first_name":"Pepe",
-        "last_name":"Sanchez",
-        "username":"PepeSanchez",
-        "email":"pepe@pepe.es"
+        "first_name": "Pepe",
+        "last_name": "Sanchez",
+        "username": "PepeSanchez",
+        "email": "pepe@pepe.es",
+        "password": "567890"
     },
     {
-        "first_name":"lolo",
-        "last_name":"Garcia",
-        "username":"LoloGarcia",
-        "email":"lolo@lolo.es"
+        "first_name": "lolo",
+        "last_name": "Garcia",
+        "username": "LoloGarcia",
+        "email": "lolo@lolo.es",
+        "password": "password"
     }
 ]
