@@ -13,6 +13,7 @@ declare var $: any;
 export class ShipsDetailsComponent implements OnInit {
 
   @Input() dataList: Array<ShipModel>;
+  @Input() bLoading: boolean;
   config: PaginationConfigModel;
   shipId: string = '';
   url: string = '';
@@ -20,7 +21,6 @@ export class ShipsDetailsComponent implements OnInit {
   titleDetails: string = '';
   modelDetails: string = '';
   starship_class: string = '';
-  @Input() bLoading: boolean;
 
   constructor() {
   }

@@ -35,12 +35,10 @@ export class RegisterComponent implements OnInit {
 
   registerUser() {
     if (this.registerForm.invalid) { return }
-    // TODO : Falta integrar el servicio para registrar al usuario
-    // JSON simulando usuarios
     this.registerService.register(this.registerForm.value as UserModel).subscribe(x => {
       if (x) {
         this.userDuplicated = false;
-        this.router.navigate(['/principal'])
+        this.router.navigateByUrl(`/principal`);
       } else {
         this.userDuplicated = true;
       }

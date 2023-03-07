@@ -32,12 +32,13 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]]
     })
   }
+
   loginUser() {
     if (this.loginForm.invalid) { return }
     this.loginService.logIn(this.loginForm.value.username, this.loginForm.value.password).subscribe((response) => {
       if (response) {
         this.unregistered = false;
-        this.router.navigateByUrl(`/principal/ships`);
+        this.router.navigateByUrl(`/principal`);
       } else {
         this.unregistered = true;
       }

@@ -20,14 +20,12 @@ export class ShipsComponent implements OnInit {
 
   private getShips(pageNumber: number) {
     this.shipsService.getShips(pageNumber).subscribe((result: ServiceResponseInterface) => {
-      console.log(result);
       this.dataList = this.dataList.concat(result.results);
       if (result.next !== null) {
         this.getShips(++pageNumber);
       } else {
         this.bLoading = false;
       }
-      console.log('SHIPS -->', this.dataList);
     });
   }
 }

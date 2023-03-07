@@ -5,9 +5,9 @@
     "ng": "ng",
     "start": "ng serve ",
     "build": "ng build",
-    "test": "jest",
-    "coverage": "jest --coverage",
-    "test:watch": "jest --watch",
+    "test": "jest --runInBand",
+    "coverage": "jest --runInBand --coverage",
+    "test:watch": "jest --runInBand --watch",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
